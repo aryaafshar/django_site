@@ -2,6 +2,7 @@
 
 {% block content %}
   <h2>Upload</h2>
+  
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="file" name="document">
@@ -9,6 +10,7 @@
   </form>
   {% if url %}
     <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
+    <img src='{{ url }}'>
   {% endif %}
   
 {% endblock %}

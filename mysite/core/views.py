@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 
 from .forms import BookForm
 from .models import Book
-
+import torch
 
 class Home(TemplateView):
     template_name = 'home.html'
@@ -17,7 +17,26 @@ def upload(request):
         uploaded_file = request.FILES['document']
         fs = FileSystemStorage()
         name = fs.save(uploaded_file.name, uploaded_file)
+        print(name)
+        
+        model = torch.hub.load('ultralytics/yolov5','custom', 'best.pt')
+
+        # Images
+        #imgs = ['https://ultralytics.com/images/zidane.jpg']  # batch of images
+
+        # Inference
+        results = model("media"+"/"+name)
+
+        # Results
+        
+        
+        results.save(save_dir='media/result',exist_ok=True)  # or .show()
+        name='result/'+name
         context['url'] = fs.url(name)
+
+        #results.xyxy[0]  # img1 predictions (tensor)
+        #results.pandas().xyxy[0]  # img1 predictions (pandas)
+
     return render(request, 'upload.html', context)
 
 
