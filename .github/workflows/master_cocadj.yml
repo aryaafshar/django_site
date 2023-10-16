@@ -64,4 +64,4 @@ jobs:
         with:
           app-name: 'cocadj'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E67CBFB083A3455D866CE4BB5C23EA6D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3C6300EDA8B44AB8998B94272CA8FB5B }}
