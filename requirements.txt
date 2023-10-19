@@ -46,5 +46,4 @@ tzdata==2023.3
 ultralytics==8.0.194
 urllib3==2.0.6
 zipp==3.17.0
-run apt-get update 
-run apt-get install ffmpeg libsm6 libxext6  -y
+
