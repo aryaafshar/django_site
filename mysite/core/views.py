@@ -3,6 +3,8 @@ from django.views.generic import TemplateView, ListView, CreateView
 from django.core.files.storage import FileSystemStorage
 from django.urls import reverse_lazy
 
+from mysite.settings import *
+
 from .forms import BookForm
 from .models import Book
 import torch
@@ -26,7 +28,7 @@ def upload(request):
 
         # Inference
         if (name!=None):
-            model = torch.hub.load('ultralytics/yolov5','custom', './best.pt')
+            model = torch.hub.load('ultralytics/yolov5','custom', BASE_DIR + /best.pt')
             #results = model("media"+"/"+name)
             #results.save(save_dir='media/result',exist_ok=True)  # or .show()
             #name='result/'+name
