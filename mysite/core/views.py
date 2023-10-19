@@ -79,8 +79,8 @@ class BookListView(ListView):
     context_object_name = 'books'
 
 
-class UploadBookView(CreateView):
-    model = Book
-    form_class = BookForm
-    success_url = reverse_lazy('class_book_list')
-    template_name = 'upload_book.html'
+#class UploadBookView(CreateView):
+   # model = Book
+    #form_class = BookForm
+    #success_url = reverse_lazy('class_book_list')
+    #template_name = 'upload_book.html'
