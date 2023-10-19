@@ -9,7 +9,7 @@
           
           <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <input type="file" name="document">
+            <input type="image" name="document">
             <button type="submit">Process</button>
           </form>
           {% if url %}
