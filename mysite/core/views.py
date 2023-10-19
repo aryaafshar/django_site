@@ -27,11 +27,11 @@ def upload(request):
         # Inference
         if (name!=None):
             model = torch.hub.load('ultralytics/yolov5','custom', './best.pt')
-            results = model("media"+"/"+name)
-            results.save(save_dir='media/result',exist_ok=True)  # or .show()
-            name='result/'+name
-            context['url'] = fs.url(name)
-
+            #results = model("media"+"/"+name)
+            #results.save(save_dir='media/result',exist_ok=True)  # or .show()
+            #name='result/'+name
+            #context['url'] = fs.url(name)
+        
         # Results
         
         

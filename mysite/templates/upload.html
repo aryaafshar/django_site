@@ -1,16 +1,27 @@
-{% extends 'base.html' %}
+{% extends 'base1.html' %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-10 col-md-12">
+      <div class="card mb-4">
+        <div class="card-body">
+          {% block content %}
+          <h2>Upload</h2>
+          
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="document">
+            <button type="submit">Process</button>
+          </form>
+          {% if url %}
+            <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
+            <img src='{{ url }}'>
+            
+          {% endif %}
+         
 
-{% block content %}
-  <h2>Upload</h2>
-  
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <input type="file" name="document">
-    <button type="submit">Upload file</button>
-  </form>
-  {% if url %}
-    <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
-    <img src='{{ url }}'>
-  {% endif %}
-  
-{% endblock %}
+          
+        {% endblock %}
+            
+      </div>
+    </div>
+  </div>
