@@ -1,6 +1,7 @@
 import datetime
 import os
 from azure.storage.blob import BlobServiceClient, generate_blob_sas, BlobSasPermissions
+import torch
 
 #Connect to the blob
 account_name='mystorageaccount420245'
@@ -40,6 +41,8 @@ def listMyblob(container,blist,sas):
   return sas,blist
 saslist,bloblist=listMyblob(container=container_name,blist=blob_list,sas=sas_list)
 sas_url='https://'+'mystorageaccount420245'+'.blob.core.windows.net'+'/'+container_name+'/'+bloblist[0]+'?'+saslist[0]
-#https://mystorageaccount420245.blob.core.windows.net/afsharfolder12/best.pt
 
+#https://mystorageaccount420245.blob.core.windows.net/afsharfolder12/best.pt
+model=torch.hub.load_state_dict_from_url(sas_url)
+print(model.items())
 print(sas_url)
