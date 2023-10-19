@@ -6,7 +6,7 @@ from mysite.settings import *
 from .forms import BookForm
 from .models import Book
 import torch
-import cv2
+
 
 class Home(TemplateView):
     template_name = 'home.html'
