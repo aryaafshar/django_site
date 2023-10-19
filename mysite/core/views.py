@@ -29,7 +29,7 @@ def upload(request):
         # Inference
         if (name!=None):
             print(BASE_DIR + '\\best.pt')
-            model = torch.hub.load('ultralytics/yolov5','custom', BASE_DIR + '\\best.pt')
+            model = torch.hub.load('ultralytics/yolov5','custom', BASE_DIR + '/best.pt')
             results = model("media"+"/"+name)
             results.save(save_dir='media/result',exist_ok=True)  # or .show()
             name='result/'+name
