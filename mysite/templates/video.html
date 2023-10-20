@@ -1,0 +1,28 @@
+{% extends 'base1.html' %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-10 col-md-12">
+      <div class="card mb-4">
+        <div class="card-body">
+          {% block content %}
+          <h2>Upload</h2>
+          
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" accept="video/*" name="document">
+            <button type="submit">Process</button>
+          </form>
+          {% if url %}
+            <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
+            <video   width="640" height="480" controls>
+                <src='{{ url }}' type="video/*">
+            
+          {% endif %}
+         
+
+          
+        {% endblock %}
+            
+      </div>
+    </div>
+  </div>
