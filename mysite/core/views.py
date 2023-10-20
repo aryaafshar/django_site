@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView, CreateView
 from django.core.files.storage import FileSystemStorage
-from django.urls import reverse_lazy
+#from django.urls import reverse_lazy
 from mysite.settings import *
-from .forms import BookForm
-from .models import Book
+#from .forms import BookForm
+#from .models import Book
 import torch
 
 
@@ -46,14 +46,14 @@ def upload(request):
     return render(request, 'upload.html', context)
 
 
-def book_list(request):
-    books = Book.objects.all()
+'''def book_list(request):
+     books = Book.objects.all()
     return render(request, 'book_list.html', {
         'books': books
     })
 
 
-def upload_book(request):
+ def upload_book(request):
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
@@ -84,3 +84,4 @@ class UploadBookView(CreateView):
     form_class = BookForm
     success_url = reverse_lazy('class_book_list')
     template_name = 'upload_book.html'
+    '''
